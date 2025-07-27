@@ -164,10 +164,10 @@ All colors MUST be HSL.
   }
   
   .slide-arrow {
-    transition: var(--transition-bounce);
+    transition: var(--transition-smooth);
   }
   
-  .slide-arrow:hover {
+  .group:hover .slide-arrow {
     transform: translateX(8px);
   }
 }

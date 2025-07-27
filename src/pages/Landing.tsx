@@ -17,13 +17,16 @@ import {
   Twitter,
   Instagram,
   Linkedin,
-  ChevronUp
+  ChevronUp,
+  Menu,
+  X
 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const Landing = () => {
   const [isFounderModalOpen, setIsFounderModalOpen] = useState(false);
   const [activeProgram, setActiveProgram] = useState("beginner");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const typingPhrases = [
     "effective communication",
@@ -47,6 +50,8 @@ const Landing = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="font-bold text-xl text-primary">Speak Up To Lead</div>
+            
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {['home', 'about', 'program', 'register', 'contact'].map((item) => (
                 <button
@@ -58,8 +63,41 @@ const Landing = () => {
                 </button>
               ))}
             </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6 text-gray-600" />
+              ) : (
+                <Menu className="h-6 w-6 text-gray-600" />
+              )}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200">
+            <div className="container mx-auto px-4 py-4 space-y-4">
+              {['home', 'about', 'program', 'register', 'contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => {
+                    scrollToSection(item);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left text-gray-600 hover:text-primary transition-colors capitalize py-2"
+                >
+                  {item === 'about' ? 'About Us' : item}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
@@ -72,18 +110,19 @@ const Landing = () => {
           backgroundPosition: 'center'
         }}
       >
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto px-4 text-left max-w-6xl">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
+            <div className="mb-4">Empowering students with</div>
             <TypingEffect 
-              staticText="Empowering students with"
+              staticText=""
               phrases={typingPhrases}
               className="leading-tight"
             />
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto animate-fade-in opacity-90">
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl animate-fade-in opacity-90">
             Building confident speakers and tomorrow's leaders through proven public speaking programs
           </p>
-          <div className="space-y-4 sm:space-y-0 sm:space-x-4 sm:flex sm:justify-center animate-fade-in">
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
             <Button 
               onClick={() => scrollToSection('program')}
               className="btn-gradient text-white px-8 py-3 text-lg"
@@ -93,7 +132,7 @@ const Landing = () => {
             <Button 
               variant="outline" 
               onClick={() => scrollToSection('about')}
-              className="border-white text-white hover:bg-white hover:text-primary px-8 py-3 text-lg"
+              className="border-white/50 bg-white/10 text-white hover:bg-white hover:text-primary px-8 py-3 text-lg backdrop-blur-sm"
             >
               Learn More
             </Button>

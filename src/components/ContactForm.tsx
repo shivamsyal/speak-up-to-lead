@@ -13,24 +13,7 @@ export const ContactForm = () => {
     phone: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    toast({
-      title: "Message sent successfully!",
-      description: "Thank you for your interest. We'll get back to you within 24 hours.",
-    });
-
-    setFormData({ name: '', email: '', phone: '', message: '' });
-    setIsSubmitting(false);
-  };
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -40,7 +23,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form action="https://formsubmit.co/speakuptoleadinfo@gmail.com" method="POST" className="space-y-6">
       <div className="grid md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="name">Full Name *</Label>
@@ -66,6 +49,7 @@ export const ContactForm = () => {
           />
         </div>
       </div>
+      <input type="hidden" name="_replyto" value="email" />
 
       <div className="space-y-2">
         <Label htmlFor="phone">Phone Number</Label>
@@ -94,17 +78,12 @@ export const ContactForm = () => {
 
       <Button
         type="submit"
-        disabled={isSubmitting}
         className="w-full btn-gradient text-white font-semibold py-3 group"
       >
-        {isSubmitting ? (
-          "Sending..."
-        ) : (
-          <>
-            Send Message
-            <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </>
-        )}
+        <>
+          Send Message
+          <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+        </>
       </Button>
     </form>
   );

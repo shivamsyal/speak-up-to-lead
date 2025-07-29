@@ -23,7 +23,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <form action="https://formsubmit.co/speakuptoleadinfo@gmail.com" method="POST" className="space-y-6">
+    <form action="https://formsubmit.co/info@speakuptolead.org" method="POST" className="space-y-6">
       <div className="grid md:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label htmlFor="name">Full Name *</Label>

@@ -370,7 +370,7 @@ const Landing = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-primary">Email</p>
-                    <p className="text-gray-600">speakuptoleadinfo@gmail.com</p>
+                    <p className="text-gray-600">info@speakuptolead.org</p>
                   </div>
                 </div>
               </div>

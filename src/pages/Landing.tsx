@@ -326,7 +326,7 @@ const Landing = () => {
           </p>
           <Button 
             className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold group"
-            onClick={() => window.open('https://google.com')}
+            onClick={() => window.open('https://forms.gle/zyXuRXykDiN3wskR9')}
           >
             Register Now
             <ArrowRight className="ml-2 h-5 w-5 slide-arrow" />

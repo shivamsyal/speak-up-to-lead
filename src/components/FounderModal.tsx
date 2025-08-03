@@ -13,14 +13,13 @@ export const FounderModal = ({ isOpen, onClose }: FounderModalProps) => {
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-[500px] sm:max-w-[750px] p-0 overflow-hidden">
         <div className="relative">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="absolute top-4 right-4 z-10 h-8 w-8 rounded-full bg-white/80 hover:bg-white"
-            onClick={onClose}
-          >
-            <X className="h-4 w-4" />
-          </Button>
+          
+          <button
+              onClick={() => onClose()}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
+              <X className="h-4 w-4" />
+            </button>
           
           <div className="p-6">
             <DialogHeader className="mb-6">

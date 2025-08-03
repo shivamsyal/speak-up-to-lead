@@ -27,6 +27,7 @@ const Landing = () => {
   const [isFounderModalOpen, setIsFounderModalOpen] = useState(false);
   const [activeProgram, setActiveProgram] = useState("beginner");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showPromo, setShowPromo] = useState(true);
 
   const typingPhrases = [
     "effective communication.",
@@ -47,7 +48,7 @@ const Landing = () => {
     <div className="min-h-screen">
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8">
           <div className="flex items-center justify-between h-20">
           <img 
               src="/imgs/logo-full.png" 
@@ -61,7 +62,7 @@ const Landing = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className="text-gray-700 hover:text-primary transition-colors capitalize"
+                  className="text-gray-700 hover:text-gray-400 transition-all ease-in-out uppercase text-sm font-semibold tracking-wide"
                 >
                   {item === 'about' ? 'About Us' : item}
                 </button>
@@ -227,6 +228,7 @@ const Landing = () => {
                       <li>Storytelling techniques</li>
                       <li>Building comfort with audience interaction</li>
                       <li>Impromptu speaking</li>
+                      <li>Classes start <span className="font-bold text-secondary">August 11th</span></li>
                     </ul>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <strong>Duration:</strong> 8 weeks | <strong>Class Size:</strong> 5-8 students | <strong>Cost:</strong> $80
@@ -405,6 +407,34 @@ const Landing = () => {
         isOpen={isFounderModalOpen} 
         onClose={() => setIsFounderModalOpen(false)} 
       />
+      {showPromo && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+          <div className="relative bg-white rounded-2xl p-8 max-w-sm mx-4 text-center shadow-xl">
+            {/* Close button in top-right */}
+            <button
+              onClick={() => setShowPromo(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            <h2 className="text-xl font-bold text-primary mb-4 leading">
+              CLASSES START SOON, REGISTER TODAY!
+            </h2>
+            <p className="text-gray-700 mb-6">
+              Our first batch for the Autumn 2025 Session starts on <span className="font-bold text-secondary"> August 11th</span>. Please register as soon as possible to secure your spot!
+            </p>
+
+            <Button
+              onClick={() => window.open('https://forms.gle/zyXuRXykDiN3wskR9', '_blank')}
+              className="btn-gradient text-white font-semibold px-6 py-3 rounded-2xl hover:scale-105 transition-all duration-300"
+            >
+              Register
+            </Button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

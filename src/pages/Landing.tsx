@@ -426,10 +426,10 @@ const Landing = () => {
             </p>
 
             <Button
-              onClick={() => window.open('https://forms.gle/zyXuRXykDiN3wskR9', '_blank')}
+              onClick={() => {document.getElementById('program')?.scrollIntoView({ behavior: 'smooth' }); setShowPromo(false);}}
               className="btn-gradient text-white font-semibold px-6 py-3 rounded-2xl hover:scale-105 transition-all duration-300"
             >
-              Register
+              Our Programs
             </Button>
           </div>
         </div>

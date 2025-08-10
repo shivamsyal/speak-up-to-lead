@@ -228,7 +228,7 @@ const Landing = () => {
                       <li>Storytelling techniques</li>
                       <li>Building comfort with audience interaction</li>
                       <li>Impromptu speaking</li>
-                      <li>Classes start <span className="font-bold text-secondary">August 11th</span></li>
+                      <li>Classes start <span className="font-bold text-secondary">Wednesday, August 13th</span></li>
                     </ul>
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <strong>Duration:</strong> 8 weeks | <strong>Class Size:</strong> 5-8 students | <strong>Cost:</strong> $80
@@ -422,7 +422,7 @@ const Landing = () => {
               CLASSES START SOON, REGISTER TODAY!
             </h2>
             <p className="text-gray-700 mb-6">
-              Our first batch for the Autumn 2025 Session starts on <span className="font-bold text-secondary"> Wednesday,August 13th</span>. Please register as soon as possible to secure your spot!
+              Our first batch for the Autumn 2025 Session starts on <span className="font-bold text-secondary"> Wednesday, August 13th</span>. Please register as soon as possible to secure your spot!
             </p>
 
             <Button

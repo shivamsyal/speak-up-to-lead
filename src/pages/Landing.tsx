@@ -422,7 +422,7 @@ const Landing = () => {
               CLASSES START SOON, REGISTER TODAY!
             </h2>
             <p className="text-gray-700 mb-6">
-              Our first batch for the Autumn 2025 Session starts on <span className="font-bold text-secondary"> August 11th</span>. Please register as soon as possible to secure your spot!
+              Our first batch for the Autumn 2025 Session starts on <span className="font-bold text-secondary"> Wednesday,August 13th</span>. Please register as soon as possible to secure your spot!
             </p>
 
             <Button

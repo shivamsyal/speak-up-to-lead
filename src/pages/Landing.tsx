@@ -27,7 +27,7 @@ const Landing = () => {
   const [isFounderModalOpen, setIsFounderModalOpen] = useState(false);
   const [activeProgram, setActiveProgram] = useState("beginner");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showPromo, setShowPromo] = useState(true);
+  const [showPromo, setShowPromo] = useState(false);
 
   const typingPhrases = [
     "effective communication.",

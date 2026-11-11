@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { TypingEffect } from "@/components/TypingEffect";
 import { FounderModal } from "@/components/FounderModal";
+import { Testimonials } from "@/components/Testimonials";
 import { ContactForm } from "@/components/ContactForm";
 import { 
   Users, 
@@ -23,11 +24,18 @@ import {
 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 
+const programDetails = (
+  <div className="bg-gray-50 p-4 rounded-lg">
+    <strong>Duration:</strong> 8 weeks | <strong>Class Size:</strong> 5-8 students
+  </div>
+);
+
+const navigationSections = ["home", "about", "program", "testimonials", "register", "contact"];
+
 const Landing = () => {
   const [isFounderModalOpen, setIsFounderModalOpen] = useState(false);
   const [activeProgram, setActiveProgram] = useState("beginner");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showPromo, setShowPromo] = useState(false);
 
   const typingPhrases = [
     "effective communication.",
@@ -57,8 +65,8 @@ const Landing = () => {
             />
             
             {/* Desktop Menu */}
-            <div className="hidden md:flex space-x-8">
-              {['home', 'about', 'program', 'register', 'contact'].map((item) => (
+            <div className="hidden gap-4 md:flex lg:gap-8">
+              {navigationSections.map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -88,7 +96,7 @@ const Landing = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200">
             <div className="container mx-auto px-4 py-4 space-y-4">
-              {['home', 'about', 'program', 'register', 'contact'].map((item) => (
+              {navigationSections.map((item) => (
                 <button
                   key={item}
                   onClick={() => {
@@ -228,66 +236,48 @@ const Landing = () => {
                       <li>Storytelling techniques</li>
                       <li>Building comfort with audience interaction</li>
                       <li>Impromptu speaking</li>
-                      <li>Classes start <span className="font-bold text-secondary">Wednesday, August 13th</span></li>
                     </ul>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <strong>Duration:</strong> 8 weeks | <strong>Class Size:</strong> 5-8 students | <strong>Cost:</strong> $80
-                    </div>
+                    {programDetails}
                   </div>
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="intermediate" className="border border-gray-200 bg-gray-100 rounded-lg mb-4">
+              <AccordionItem value="intermediate" className="border border-gray-200 rounded-lg mb-4">
                 <AccordionTrigger className="px-6 py-4 hover:no-underline">
                   <div className="text-left">
-                    <h3 className="text-xl font-semibold text-gray-500">Intermediate Level - Coming Soon</h3>
-                    <p className="text-gray-400">Developing persuasive speaking skills</p>
+                    <h3 className="text-xl font-semibold text-primary">Intermediate Level (Grades 6-11)</h3>
+                    <p className="text-gray-600">Business pitches and persuasive speaking</p>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4">
                   <div className="space-y-4">
-                    <p className="text-gray-700">
-                      More information coming soon!
-                    </p>
-                    {/* 
+                    <p className="text-gray-700">Students develop a business idea and learn to present it in a clear, persuasive pitch.</p>
                     <ul className="list-disc list-inside space-y-2 text-gray-600">
-                      <li>Speech structure and organization</li>
-                      <li>Research and evidence integration</li>
-                      <li>Body language and stage presence</li>
-                      <li>Handling questions and feedback</li>
+                      <li>Identify a customer problem and explain how the business solves it</li>
+                      <li>Structure a pitch around the strongest selling points</li>
+                      <li>Practice pitch delivery and answer audience questions</li>
                     </ul>
-                    
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <strong>Duration:</strong> 10 weeks | <strong>Class Size:</strong> 6-8 students
-                    </div>
-                    */}
-                  </div> 
+                    {programDetails}
+                  </div>
                 </AccordionContent>
               </AccordionItem>
 
-              <AccordionItem value="advanced" className="border border-gray-200 bg-gray-100 rounded-lg mb-4">
+              <AccordionItem value="advanced" className="border border-gray-200 rounded-lg mb-4">
                 <AccordionTrigger className="px-6 py-4 hover:no-underline">
                   <div className="text-left">
-                    <h3 className="text-xl font-semibold text-gray-500">Advanced Level - Coming Soon</h3>
-                    <p className="text-gray-400">Leadership and debate mastery</p>
+                    <h3 className="text-xl font-semibold text-primary">Advanced Level (Grades 8-11)</h3>
+                    <p className="text-gray-600">Congressional Debate and Model United Nations</p>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4">
                   <div className="space-y-4">
-                    <p className="text-gray-700">
-                      More information coming soon!
-                    </p>
-                    {/* 
+                    <p className="text-gray-700">Students practice public speaking and advocacy through Congressional Debate and Model United Nations (MUN).</p>
                     <ul className="list-disc list-inside space-y-2 text-gray-600">
-                      <li>Advanced debate formats and strategies</li>
-                      <li>Leadership communication styles</li>
-                      <li>Competition preparation</li>
-                      <li>Mentoring younger students</li>
+                      <li>Research legislation and build evidence-based arguments</li>
+                      <li>Deliver speeches and respond to opposing views</li>
+                      <li>Represent a country, negotiate with delegates, and draft resolutions</li>
                     </ul>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <strong>Duration:</strong> 12 weeks | <strong>Class Size:</strong> 4-6 students
-                    </div>
-                    */}
+                    {programDetails}
                   </div>
                 </AccordionContent>
               </AccordionItem>
@@ -318,6 +308,8 @@ const Landing = () => {
           </div>
         </div>
       </section>
+
+      <Testimonials />
 
       {/* Register Section */}
       <section id="register" className="py-20 hero-gradient text-white">
@@ -362,7 +354,7 @@ const Landing = () => {
                   </div>
                   <div>
                     <p className="font-semibold text-primary">Phone</p>
-                    <p className="text-gray-600">(732) 436-8188</p>
+                    <a href="tel:+17328323050" className="text-gray-600 hover:underline">(732) 832-3050</a>
                   </div>
                 </div>
 
@@ -388,7 +380,7 @@ const Landing = () => {
           
 
           <p className="text-white">
-            © 2025 Speak Up To Lead. All rights reserved.
+            © {new Date().getFullYear()} Speak Up To Lead. All rights reserved.
           </p>
         </div>
       </footer>
@@ -407,33 +399,6 @@ const Landing = () => {
         isOpen={isFounderModalOpen} 
         onClose={() => setIsFounderModalOpen(false)} 
       />
-      {showPromo && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-          <div className="relative bg-white rounded-2xl p-8 max-w-sm mx-4 text-center shadow-xl">
-            {/* Close button in top-right */}
-            <button
-              onClick={() => setShowPromo(false)}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-            >
-              <X className="h-4 w-4" />
-            </button>
-
-            <h2 className="text-xl font-bold text-primary mb-4 leading">
-              CLASSES START SOON, REGISTER TODAY!
-            </h2>
-            <p className="text-gray-700 mb-6">
-              Our first batch for the Autumn 2025 Session starts on <span className="font-bold text-secondary"> Wednesday, August 13th</span>. Please register as soon as possible to secure your spot!
-            </p>
-
-            <Button
-              onClick={() => {document.getElementById('program')?.scrollIntoView({ behavior: 'smooth' }); setShowPromo(false);}}
-              className="btn-gradient text-white font-semibold px-6 py-3 rounded-2xl hover:scale-105 transition-all duration-300"
-            >
-              Our Programs
-            </Button>
-          </div>
-        </div>
-      )}
 
     </div>
   );

@@ -380,7 +380,7 @@ const Landing = () => {
           
 
           <p className="text-white">
-            © {new Date().getFullYear()} Speak Up To Lead. All rights reserved.
+            © 2024-26 Speak Up To Lead. All rights reserved.
           </p>
         </div>
       </footer>
